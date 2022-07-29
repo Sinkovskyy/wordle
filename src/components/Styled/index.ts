@@ -1,1 +1,1 @@
-export * from './Styled'
+export * from './Styled'

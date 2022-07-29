@@ -1,3 +1,1 @@
-export * from './colors'
-export * from './functions'
-export * from './global'
+export * from './colors'export * from './functions'export * from './global'
