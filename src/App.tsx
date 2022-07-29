@@ -1,7 +1,13 @@
+import GlobalStyles from './styles/global'
 import { MainView } from './views'
 
 function App() {
-  return <MainView />
+  return (
+    <>
+      <GlobalStyles />
+      <MainView />
+    </>
+  )
 }
 
 export default App

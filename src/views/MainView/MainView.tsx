@@ -1,7 +1,13 @@
 import { FC } from 'react'
+import { FlexWrapper } from '../../components'
+import { Header } from './components'
 
 const MainView: FC = () => {
-  return <>Main view</>
+  return (
+    <FlexWrapper direction="column">
+      <Header />
+    </FlexWrapper>
+  )
 }
 
 export default MainView
