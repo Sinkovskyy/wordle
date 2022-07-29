@@ -1,5 +1,7 @@
+import { MainView } from './views'
+
 function App() {
-  return <>init</>;
+  return <MainView />
 }
 
-export default App;
+export default App
