@@ -14,7 +14,9 @@ const GameTable: FC = () => {
 
   return (
     <FlexWrapper wrap="wrap" gap={5} width="290px">
-      {arr.map((row) => row.map((letter) => <LetterBlock>{letter}</LetterBlock>))}
+      {arr.map((row) =>
+        row.map((letter, key) => <LetterBlock key={key}>{letter}</LetterBlock>)
+      )}
     </FlexWrapper>
   )
 }

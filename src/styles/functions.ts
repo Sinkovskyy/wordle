@@ -1,7 +1,7 @@
 import { Colors } from './colors'
 import { TFONT } from './types'
 
-export const FONT: (props: TFONT) => string = ({
+export const font: (props: TFONT) => string = ({
   color = Colors.white,
   size = '16px',
   weight = '400',

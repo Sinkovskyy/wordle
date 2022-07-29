@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Colors, FONT } from '../../styles'
+import { Colors, font } from '../../styles'
 
 export const LetterBlock = styled.div`
   width: 50px;
@@ -9,7 +9,7 @@ export const LetterBlock = styled.div`
   align-items: center;
   justify-content: center;
 
-  ${FONT({ size: '2rem', weight: '700' })}
+  ${font({ size: '2rem', weight: '700' })}
 
   background-color: transparent;
 
