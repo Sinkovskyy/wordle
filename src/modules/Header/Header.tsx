@@ -1,5 +1,5 @@
 import { FC, useState } from 'react'
-import { H1 } from '../../../../components'
+import { H1 } from '../../components'
 import { SettingsPopup } from '../SettingsPopup'
 import { Container, LogoContainer, SettingsButton } from './styled'
 

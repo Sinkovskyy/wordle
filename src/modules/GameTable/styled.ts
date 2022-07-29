@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Colors, FONT } from '../../../../styles'
+import { Colors, FONT } from '../../styles'
 
 export const LetterBlock = styled.div`
   width: 50px;

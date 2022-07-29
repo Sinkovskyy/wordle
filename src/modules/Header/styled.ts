@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import { Assets } from '../../../../assets'
-import { FlexWrapper } from '../../../../components'
-import { Colors } from '../../../../styles'
+import { Assets } from '../../assets'
+import { FlexWrapper } from '../../components'
+import { Colors } from '../../styles'
 
 export const Container = styled(FlexWrapper)`
   width: 100%;

@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { FlexWrapper } from '../../../../components'
+import { FlexWrapper } from '../../components'
 import { LetterBlock } from './styled'
 
 const GameTable: FC = () => {

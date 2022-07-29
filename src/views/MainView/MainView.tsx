@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { FlexWrapper } from '../../components'
-import { Header, GameTable } from './components'
+import { GameTable, Header } from '../../modules'
 
 const MainView: FC = () => {
   return (

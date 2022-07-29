@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { H2 } from '../../../../components'
+import { H2 } from '../../components'
 import {
   Container,
   PopupContainer,
