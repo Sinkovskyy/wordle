@@ -1,7 +1,6 @@
 export class Colors {
   static readonly black = '#ffffff'
   static readonly black_tone_1 = '#121213'
-  static readonly black_tone_2 = '#3a3a3c'
   static readonly green = '#538D4E'
   static readonly yellow = '#B59F3B'
   static readonly white = '#FFFFFF'
