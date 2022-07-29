@@ -13,7 +13,7 @@ const GlobalStyles = createGlobalStyle`
 
 
     body{
-        background-color: ${Colors.black};
+        background-color: ${Colors.black_tone_1};
     }
 
 

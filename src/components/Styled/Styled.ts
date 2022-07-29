@@ -17,3 +17,7 @@ export const FlexWrapper = styled.div<TFlexWrapper>`
 export const H1 = styled.h1`
   ${FONT({ size: '36px', weight: '700' })}
 `
+
+export const H2 = styled.h2`
+  ${FONT({ size: '16px', weight: '700' })}
+`
