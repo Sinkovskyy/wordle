@@ -58,8 +58,7 @@ const Keyboard: FC = () => {
 
   const Requests = {
     editWord: (word: string) => {
-      console.log(word)
-      dispatch(gameActions.editWord({ attemp: { word } }))
+      dispatch(gameActions.editWord({ attemp: { word: word.toUpperCase() } }))
     },
     verifyWord: () => {
       dispatch(gameActions.verifyWord())

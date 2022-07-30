@@ -5,7 +5,7 @@ import { gameActions } from './actions'
 import { ApiGameService } from './api.service'
 import { getGameSelector } from './selectors'
 
-export function* verifyWordWorker() {
+function* verifyWordWorker() {
   try {
     const { attemps } = yield select(getGameSelector)
 

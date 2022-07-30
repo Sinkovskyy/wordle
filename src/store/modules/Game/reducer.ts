@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { Game } from '../../../config'
+import { wordUtils } from '../../../utils'
 import { TDataWrapper } from '../../types'
 
 import { TEditWordPayload, TIntialState } from './types'
@@ -13,6 +14,9 @@ export const slice = createSlice({
   name: 'game',
   initialState,
   reducers: {
+    generateGuessedWord: (state) => {
+      state.guessedWord = wordUtils.getRandomWord()
+    },
     saveWord: (state) => {
       state.attemps = [...state.attemps, { error: false, word: '' }]
     },
