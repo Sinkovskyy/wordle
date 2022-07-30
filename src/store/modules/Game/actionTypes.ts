@@ -1,3 +1,3 @@
 export const ActionTypes = {
-  VERIFY_WORD: 'game/VERIFY_WORD',
+  VERIFY_WORD: 'game/verifyWord',
 }

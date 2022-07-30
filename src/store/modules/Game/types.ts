@@ -12,8 +12,8 @@ export type TEditWordPayload = {
   attemp: Partial<TAttemp>
 }
 
-export type TVerifyWordPayload = {
+export type TVerifyWordPayload = {}
+
+export type TVerifyWordRequestPayload = {
   word: TAttemp['word']
 }
-
-export type TVerifyWordRequestPayload = Pick<TVerifyWordPayload, 'word'>

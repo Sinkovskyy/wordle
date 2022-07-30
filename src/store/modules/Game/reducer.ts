@@ -13,10 +13,10 @@ export const slice = createSlice({
   name: 'game',
   initialState,
   reducers: {
-    SAVE_WORD: (state) => {
+    saveWord: (state) => {
       state.attemps = [...state.attemps, { error: false, word: '' }]
     },
-    EDIT_WORD: (state, { payload }: TDataWrapper<TEditWordPayload>) => {
+    editWord: (state, { payload }: TDataWrapper<TEditWordPayload>) => {
       // If word is too long
       if (payload.attemp.word && payload.attemp.word.length > Game.WORD_LENGTH) {
         return

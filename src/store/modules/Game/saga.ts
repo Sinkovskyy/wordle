@@ -1,23 +1,33 @@
-import { call, takeLatest } from 'redux-saga/effects'
-import { TDataWrapper, TResponse } from '../../types'
+import { call, takeLatest, select, put } from 'redux-saga/effects'
+import { Game } from '../../../config'
+import { TResponse } from '../../types'
 import { gameActions } from './actions'
 import { ApiGameService } from './api.service'
-import { TVerifyWordPayload } from './types'
+import { getGameSelector } from './selectors'
 
-export function* checkoutWordWorker({ payload }: TDataWrapper<TVerifyWordPayload>) {
+export function* verifyWordWorker() {
   try {
-    const { word } = payload
+    const { attemps } = yield select(getGameSelector)
+
+    const word = attemps.at(-1).word
+
+    if (word.length < Game.WORD_LENGTH) {
+      yield put(gameActions.editWord({ attemp: { error: true } }))
+      return
+    }
 
     const response: TResponse = yield call([ApiGameService, ApiGameService.verifyWord], {
       word,
     })
 
-    console.log(response)
+    if (response.status == 200) {
+      yield put(gameActions.saveWord())
+    }
   } catch (e) {
-    console.log(e)
+    yield put(gameActions.editWord({ attemp: { error: true } }))
   }
 }
 
 export function* gameWatcher() {
-  yield takeLatest(gameActions.VERIFY_WORD, checkoutWordWorker)
+  yield takeLatest(gameActions.verifyWord, verifyWordWorker)
 }
