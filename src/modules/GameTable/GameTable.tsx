@@ -1,11 +1,15 @@
-import { FC } from 'react'
+import { FC, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+
 import { Game } from '../../config'
 import { useTypedSelector } from '../../hooks'
-import { getGameSelector } from '../../store'
+import { gameActions, getGameSelector } from '../../store'
 import { Container, LetterBlock } from './styled'
 
 const GameTable: FC = () => {
-  const { attemps } = useTypedSelector(getGameSelector)
+  const dispatch = useDispatch()
+
+  const { attemps, guessedWord } = useTypedSelector(getGameSelector)
 
   const Utils = {
     generateBlocks: () => {
@@ -27,6 +31,10 @@ const GameTable: FC = () => {
       return blocks
     },
   }
+
+  useEffect(() => {
+    !guessedWord && dispatch(gameActions.generateGuessedWord())
+  }, [])
 
   return <Container>{Utils.generateBlocks()}</Container>
 }
