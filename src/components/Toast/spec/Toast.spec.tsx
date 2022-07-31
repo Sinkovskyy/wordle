@@ -1,14 +1,9 @@
 import React from 'react'
 import { PersistGate } from 'redux-persist/integration/react'
-import { render, screen, cleanup } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { Provider } from 'react-redux'
 import Toast from '../Toast'
 import { store, persistor, toastActions } from '../../../store'
-
-beforeEach(() => {
-  jest.resetModules()
-  cleanup()
-})
 
 describe('Toast component', () => {
   it('should show toast', () => {
