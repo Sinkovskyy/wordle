@@ -1,6 +1,6 @@
 import { call, takeLatest, select, put } from 'redux-saga/effects'
 import { Game } from '../../../config'
-import { toastActions } from '../toast'
+import { toastActions } from '../Toast'
 import { gameActions } from './actions'
 import { ApiGameService } from './api.service'
 import { GAME_TEXT } from './config'
