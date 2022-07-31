@@ -20,3 +20,5 @@ export type TVerifyWordRequestPayload = {
 }
 
 export type TSetKeyboardStatePayload = Pick<TInitialState, 'keyboardEnabled'>
+
+export type TSetGuessedWordPayload = Pick<TInitialState, 'guessedWord'>

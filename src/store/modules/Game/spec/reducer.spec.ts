@@ -16,7 +16,7 @@ describe('Game reducer', () => {
   })
 
   it('Must to generate random word', () => {
-    const action = sliceActions.generateGuessedWord()
+    const action = sliceActions.setGuessedWord()
 
     const result = gameReducer(initialState, action)
     expect(result.guessedWord).not.toBeNull()

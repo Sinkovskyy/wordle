@@ -1,9 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { Game } from '../../../config'
-import { wordUtils } from '../../../utils'
 import { TDataWrapper } from '../../types'
 
-import { TEditWordPayload, TInitialState, TSetKeyboardStatePayload } from './types'
+import {
+  TEditWordPayload,
+  TInitialState,
+  TSetGuessedWordPayload,
+  TSetKeyboardStatePayload,
+} from './types'
 
 const initialState: TInitialState = {
   attemps: [{ error: false, word: '' }],
@@ -18,8 +22,8 @@ export const slice = createSlice({
     setKeyboard: (state, { payload }: TDataWrapper<TSetKeyboardStatePayload>) => {
       state.keyboardEnabled = payload.keyboardEnabled
     },
-    generateGuessedWord: (state) => {
-      state.guessedWord = wordUtils.getRandomWord()
+    setGuessedWord: (state, { payload }: TDataWrapper<TSetGuessedWordPayload>) => {
+      state.guessedWord = payload.guessedWord
     },
     saveWord: (state) => {
       state.attemps = [...state.attemps, { error: false, word: '' }]

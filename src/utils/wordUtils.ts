@@ -10,7 +10,7 @@ export const wordUtils = {
   getRandomWord: (): string => {
     return WORDS[Math.floor(Math.random() * WORDS.length)]
   },
-  getLetterPosition: (letter: string, word: string): number[] => {
+  getLetterPositions: (letter: string, word: string): number[] => {
     const position: number[] = []
     if (!word) return position
     word.split('').forEach((wordLetter, index) => {
@@ -25,7 +25,7 @@ export const wordUtils = {
     let letterPositions: number[] = []
 
     for (const attemp of attemps.slice(0, attemps.length - 1)) {
-      const letterPositionsInAttempWord: number[] = this.getLetterPosition(
+      const letterPositionsInAttempWord: number[] = this.getLetterPositions(
         letter,
         attemp.word
       )
@@ -41,7 +41,7 @@ export const wordUtils = {
   } {
     const { guessedWord } = store.getState().game
 
-    const letterPositionsInGuessedWord: number[] = this.getLetterPosition(
+    const letterPositionsInGuessedWord: number[] = this.getLetterPositions(
       letter,
       guessedWord as string
     )

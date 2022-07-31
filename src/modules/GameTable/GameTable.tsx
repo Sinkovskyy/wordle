@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux'
 import { Game } from '../../config'
 import { useTypedSelector } from '../../hooks'
 import { gameActions, getGameSelector } from '../../store'
+import { wordUtils } from '../../utils'
 import { Tile } from './components'
 import { Container } from './styled'
 
@@ -38,7 +39,8 @@ const GameTable: FC = () => {
 
   // Generate new guessed word
   useEffect(() => {
-    !guessedWord && dispatch(gameActions.generateGuessedWord())
+    !guessedWord &&
+      dispatch(gameActions.setGuessedWord({ guessedWord: wordUtils.getRandomWord() }))
   }, [])
 
   return <Container>{Utils.generateBlocks()}</Container>
