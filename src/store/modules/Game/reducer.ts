@@ -32,6 +32,10 @@ export const slice = createSlice({
         { word: '', ...state.attemps.at(-1), error: false, ...payload.attemp },
       ]
     },
+    restartGame: (state) => {
+      state.guessedWord = initialState.guessedWord
+      state.attemps = initialState.attemps
+    },
   },
 })
 
