@@ -15,7 +15,6 @@ export const Tile: FC<TTile> = ({ column, row, letter }) => {
   const [animationDelay, setAnimationDelay] = useState<TStyledTile['animationDelay']>()
   const [animationDuration, setAnimationDuration] =
     useState<TStyledTile['animationDuration']>()
-  const [popAnimationWasDone, setPopAnimationWasDone] = useState<boolean>(false)
 
   const Utils = {
     getLetterColor: (): ELetterColor => {
@@ -65,7 +64,6 @@ export const Tile: FC<TTile> = ({ column, row, letter }) => {
   useEffect(() => {
     animation == ELetterAnimation.flip && setAnimationDelay(Config.FLIP_DELAY * column)
 
-    // If flip animation
     if (animation == ELetterAnimation.flip) {
       // When flip animation in the 50%
       setTimeout(() => {
