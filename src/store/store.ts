@@ -9,9 +9,9 @@ import { Env } from '../config'
 
 const persistedReducer = persistReducer(
   {
-    key: Env.REDUX_STORE_NAME || 'primary',
+    key: Env.REDUX_STORE_NAME,
     storage,
-    whitelist: [],
+    whitelist: ['game'],
   },
   rootReducer
 )

@@ -77,7 +77,6 @@ describe('word utilities methods', () => {
     expect(wordUtils.getLetterState('te').isInWord).toBeFalsy()
     store.dispatch(gameActions.editWord({ attemp: { word: 'BETEG' } }))
     store.dispatch(gameActions.saveWord())
-    console.log(store.getState().game)
     expect(wordUtils.getLetterState('b').isInWord).toBeFalsy()
   })
 })
