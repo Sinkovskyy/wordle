@@ -1,8 +1,12 @@
 import { FC } from 'react'
+import { useTypedSelector } from '../../hooks'
+import { getToastSelector } from '../../store'
 import { Container } from './styled'
 
 export const Toast: FC = () => {
-  return <Container>work</Container>
+  const { text, isVisible } = useTypedSelector(getToastSelector)
+
+  return <>{isVisible && <Container>{text}</Container>}</>
 }
 
 export default Toast
