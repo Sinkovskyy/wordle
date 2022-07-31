@@ -5,17 +5,18 @@ export type TTile = {
 }
 
 export enum ELetterColor {
-  green,
-  yellow,
-  grey,
-  default,
+  green = 'green',
+  yellow = 'yellow',
+  grey = 'grey',
+  highlight_border = 'highlight_border',
+  default = 'default',
 }
 
 export enum ELetterAnimation {
-  pop,
-  shake,
-  flip,
-  idle,
+  pop = 'pop',
+  shake = 'shake',
+  flip = 'flip',
+  idle = 'idle',
 }
 
 export type TStyledTile = {

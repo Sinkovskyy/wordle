@@ -20,7 +20,8 @@ export const Tile: FC<TTile> = ({ column, row, letter }) => {
     getLetterColor: (): ELetterColor => {
       if (!letter) return ELetterColor.default
 
-      if (attemps.length == row + 1) return ELetterColor.default
+      // If letter in typed row
+      if (attemps.length == row + 1) return ELetterColor.highlight_border
 
       if (attemps.length <= 1) {
         return ELetterColor.default

@@ -19,7 +19,7 @@ export const StyledTile = styled.div<TStyledTile>`
   ${({ theme: color }) => {
     if (color == ELetterColor.green) {
       return css`
-        background-color: ${Colors.green};
+        background-color: ${Colors.green} !important;
       `
     }
 
@@ -34,10 +34,16 @@ export const StyledTile = styled.div<TStyledTile>`
         background-color: ${Colors.grey_tone_1};
       `
     }
+
+    if (color == ELetterColor.highlight_border) {
+      return css`
+        border: 2px solid ${Colors.grey_tone_4} !important;
+      `
+    }
   }}
 
   ${({ theme: color }) => {
-    if (!!color && color != ELetterColor.default) {
+    if (color != ELetterColor.default) {
       return css`
         border: none;
       `
