@@ -1,1 +1,1 @@
-export * from './MainView'
+export * from './MainView'
