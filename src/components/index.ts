@@ -1,1 +1,2 @@
-export * from './Styled'
+export * from './Styled'
+export * from './Toast'

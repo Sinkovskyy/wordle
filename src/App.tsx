@@ -1,5 +1,6 @@
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
+import { Toast } from './components'
 
 import { persistor, store } from './store'
 import GlobalStyles from './styles/global'
@@ -11,6 +12,7 @@ function App() {
       <PersistGate loading={null} persistor={persistor}>
         <GlobalStyles />
         <MainView />
+        <Toast />
       </PersistGate>
     </Provider>
   )
