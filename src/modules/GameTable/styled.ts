@@ -1,6 +1,7 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { FlexWrapper } from '../../components'
 import { Colors, font } from '../../styles'
+import { TLetterBlock } from './types'
 
 export const Container = styled(FlexWrapper)`
   max-width: 100%;
@@ -11,7 +12,7 @@ export const Container = styled(FlexWrapper)`
   gap: 5px;
 `
 
-export const LetterBlock = styled.div`
+export const LetterBlock = styled.div<TLetterBlock>`
   width: 62px;
   height: 62px;
   border: 2px solid ${Colors.grey_tone_1};
@@ -23,23 +24,35 @@ export const LetterBlock = styled.div`
 
   background-color: transparent;
 
-  &.grey {
-    background-color: ${Colors.grey};
-  }
+  ${({ color }) => {
+    if (color == 'green') {
+      return css`
+        background-color: ${Colors.green};
+      `
+    }
 
-  &.yellow {
-    background-color: ${Colors.yellow};
-  }
+    if (color == 'yellow') {
+      return css`
+        background-color: ${Colors.yellow};
+      `
+    }
 
-  &.green {
-    background-color: ${Colors.green};
-  }
+    if (color == 'grey') {
+      return css`
+        background-color: ${Colors.grey_tone_1};
+      `
+    }
+  }}
 
-  &.grey,
-  &.yellow,
-  &.green {
-    border: none;
-  }
+  ${({ color }) => {
+    if (!!color) {
+      return css`
+        border: none;
+      `
+    }
+  }}
+
+
 
   @media (max-width: 350px) {
     width: calc(100% * (1 / 5) - 10px - 1px);
