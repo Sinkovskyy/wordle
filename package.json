@@ -12,6 +12,7 @@
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
     "axios": "^0.27.2",
+    "jest": "^28.1.3",
     "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -27,7 +28,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest",
     "eject": "react-scripts eject",
     "lint": "eslint --ext .ts,.tsx src --fix"
   },
@@ -61,5 +62,12 @@
     "eslint-plugin-react": "^7.30.1",
     "eslint-plugin-react-hooks": "^4.6.0",
     "prettier": "^2.7.1"
+  },
+  "jest": {
+    "testEnviroment": "jsdom",
+    "collectCoverageFrom":["scr/**/*.{ts,tsx,js,jsx}","!src/**/*.d.ts"],
+    "setupFilesAfterEnv": [
+      "<rootDir>/jest-setup.ts"
+    ]
   }
 }
