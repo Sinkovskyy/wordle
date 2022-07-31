@@ -1,13 +1,11 @@
-import _ from 'lodash'
 import { FC, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 
 import { Game } from '../../config'
 import { useTypedSelector } from '../../hooks'
 import { gameActions, getGameSelector } from '../../store'
-import { wordUtils } from '../../utils'
-import { Container, LetterBlock } from './styled'
-import { TLetterColor } from './types'
+import { Tile } from './components'
+import { Container } from './styled'
 
 const GameTable: FC = () => {
   const dispatch = useDispatch()
@@ -21,53 +19,24 @@ const GameTable: FC = () => {
       for (let row = 0; row < Game.ATTEMPS; row++) {
         const word = attemps[row]?.word || ''
 
-        for (let position = 0; position < Game.WORD_LENGTH; position++) {
-          const letter = word[position]
+        for (let column = 0; column < Game.WORD_LENGTH; column++) {
+          const letter = word[column]
 
           if (letter) {
-            const isCurrentlyGuessed = attemps.length != row + 1
-
             blocks.push(
-              <LetterBlock
-                color={isCurrentlyGuessed ? this.getLetterColor(letter, position) : ''}
-                key={'' + row + position}
-              >
-                {letter}
-              </LetterBlock>
+              <Tile key={'' + row + column} row={row} column={column} letter={letter} />
             )
           } else {
-            blocks.push(<LetterBlock key={'' + row + position} />)
+            blocks.push(<Tile key={'' + row + column} row={row} column={column} />)
           }
         }
       }
 
       return blocks
     },
-    getLetterColor: (letter: string, position: number): TLetterColor => {
-      if (attemps.length <= 1) {
-        return ''
-      }
-
-      const letterState = wordUtils.getLetterState(letter)
-
-      const isLetterInCorrectPosition = _.isNumber(
-        letterState.letterCorrectPosition.find(
-          (correctPosition) => correctPosition == position
-        )
-      )
-
-      if (isLetterInCorrectPosition) {
-        return 'green'
-      }
-
-      if (letterState.isInWord) {
-        return 'yellow'
-      }
-
-      return 'grey'
-    },
   }
 
+  // Generate new guessed word
   useEffect(() => {
     !guessedWord && dispatch(gameActions.generateGuessedWord())
   }, [])
