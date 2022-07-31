@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 import { FlexWrapper } from '../../components'
 import { Colors, font } from '../../styles'
-import { TKeyButton } from './types'
+import { EKeyButtonColor, TKeyButton } from './types'
 
 export const Container = styled(FlexWrapper)`
   flex-direction: column;
@@ -27,19 +27,19 @@ export const KeyButton = styled.button<TKeyButton>`
   cursor: pointer;
 
   ${({ color }) => {
-    if (color == 'green') {
+    if (color == EKeyButtonColor.green) {
       return css`
         background-color: ${Colors.green};
       `
     }
 
-    if (color == 'yellow') {
+    if (color == EKeyButtonColor.yellow) {
       return css`
         background-color: ${Colors.yellow};
       `
     }
 
-    if (color == 'grey') {
+    if (color == EKeyButtonColor.grey) {
       return css`
         background-color: ${Colors.grey_tone_1};
       `

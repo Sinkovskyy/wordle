@@ -1,8 +1,13 @@
-export type TKeyButtonColor = 'green' | 'yellow' | 'grey' | ''
+export enum EKeyButtonColor {
+  green = 'grenn',
+  yellow = 'yellow',
+  grey = 'grey',
+  default = 'default',
+}
 
 export type TKeyButton = {
   flex: string
-  color?: TKeyButtonColor
+  color?: EKeyButtonColor
 }
 
 export type TKeyboardKeys = TKey[][]

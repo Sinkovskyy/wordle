@@ -7,7 +7,7 @@ import { gameActions, getGameSelector } from '../../store'
 import { wordUtils } from '../../utils'
 import { KEYS } from './keys'
 import { KeyButton, Container } from './styled'
-import { TKeyButtonColor } from './types'
+import { EKeyButtonColor } from './types'
 
 const Keyboard: FC = () => {
   const dispatch = useDispatch()
@@ -27,7 +27,7 @@ const Keyboard: FC = () => {
 
   const Events = {
     keydownHandler: (e: KeyboardEvent) => {
-      setTypedButton(e)
+      !e.repeat && setTypedButton(e)
     },
     keyboardButtonClickHandler: (key: string) => {
       const event = new KeyboardEvent('keydown', { key })
@@ -36,28 +36,28 @@ const Keyboard: FC = () => {
   }
 
   const Utils = {
-    getKeyState: (key: string): TKeyButtonColor => {
+    getKeyState: (key: string): EKeyButtonColor => {
       if (attemps.length <= 1 || !wordUtils.charIsLetter(key)) {
-        return ''
+        return EKeyButtonColor.default
       }
 
       const keyState = wordUtils.getLetterState(key)
 
       if (keyState.letterCorrectPosition.length) {
-        return 'green'
+        return EKeyButtonColor.green
       }
 
       if (keyState.isInWord) {
-        return 'yellow'
+        return EKeyButtonColor.yellow
       }
 
       const keyInAttemWordPosition = wordUtils.getLetterPositionInAttempWords(key)
 
       if (keyInAttemWordPosition.length) {
-        return 'grey'
+        return EKeyButtonColor.grey
       }
 
-      return ''
+      return EKeyButtonColor.default
     },
   }
 
@@ -81,7 +81,7 @@ const Keyboard: FC = () => {
   }, [typedButton])
 
   useEffect(() => {
-    document.addEventListener('keydown', Events.keydownHandler)
+    document.addEventListener('keydown', Events.keydownHandler, false)
 
     return () => {
       document.removeEventListener('keydown', Events.keydownHandler)
