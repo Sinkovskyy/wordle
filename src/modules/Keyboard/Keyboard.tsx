@@ -12,7 +12,7 @@ import { EKeyButtonColor } from './types'
 const Keyboard: FC = () => {
   const dispatch = useDispatch()
 
-  const { attemps } = useTypedSelector(getGameSelector)
+  const { attemps, keyboardEnabled } = useTypedSelector(getGameSelector)
 
   const [typedButton, setTypedButton] = useState<KeyboardEvent | null>(null)
 
@@ -63,7 +63,7 @@ const Keyboard: FC = () => {
 
   // Type click event handler
   useEffect(() => {
-    if (typedButton) {
+    if (typedButton && keyboardEnabled) {
       const currentWord = attemps.at(-1)?.word || ''
 
       if (typedButton.key == 'Enter') {

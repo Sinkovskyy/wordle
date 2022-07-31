@@ -3,17 +3,21 @@ import { Game } from '../../../config'
 import { wordUtils } from '../../../utils'
 import { TDataWrapper } from '../../types'
 
-import { TEditWordPayload, TIntialState } from './types'
+import { TEditWordPayload, TInitialState, TSetKeyboardStatePayload } from './types'
 
-const initialState: TIntialState = {
+const initialState: TInitialState = {
   attemps: [{ error: false, word: '' }],
   guessedWord: null,
+  keyboardEnabled: true,
 }
 
 export const slice = createSlice({
   name: 'game',
   initialState,
   reducers: {
+    setKeyboard: (state, { payload }: TDataWrapper<TSetKeyboardStatePayload>) => {
+      state.keyboardEnabled = payload.keyboardEnabled
+    },
     generateGuessedWord: (state) => {
       state.guessedWord = wordUtils.getRandomWord()
     },
@@ -35,6 +39,7 @@ export const slice = createSlice({
     restartGame: (state) => {
       state.guessedWord = initialState.guessedWord
       state.attemps = initialState.attemps
+      state.keyboardEnabled = initialState.keyboardEnabled
     },
   },
 })

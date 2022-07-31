@@ -1,6 +1,7 @@
-export type TIntialState = {
+export type TInitialState = {
   attemps: TAttemp[]
   guessedWord: TAttemp['word'] | null
+  keyboardEnabled: boolean
 }
 
 export type TAttemp = {
@@ -17,3 +18,5 @@ export type TVerifyWordPayload = {}
 export type TVerifyWordRequestPayload = {
   word: TAttemp['word']
 }
+
+export type TSetKeyboardStatePayload = Pick<TInitialState, 'keyboardEnabled'>

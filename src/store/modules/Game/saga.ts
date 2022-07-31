@@ -26,7 +26,9 @@ function* verifyWordWorker() {
       return
     }
 
+    // if user guessed the word
     if (word == guessedWord) {
+      yield put(gameActions.setKeyboard({ keyboardEnabled: false }))
       yield put(
         toastActions.setToast({
           text: GAME_TEXT.guessWord.text,
@@ -40,7 +42,9 @@ function* verifyWordWorker() {
       word,
     })
 
+    // if last attemp was not success
     if (attemps.length == Game.ATTEMPS) {
+      yield put(gameActions.setKeyboard({ keyboardEnabled: false }))
       yield put(
         toastActions.setToast({
           text: guessedWord,

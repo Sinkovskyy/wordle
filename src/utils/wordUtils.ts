@@ -12,7 +12,7 @@ export const wordUtils = {
   },
   getLetterPosition: (letter: string, word: string): number[] => {
     const position: number[] = []
-
+    if (!word) return position
     word.split('').forEach((wordLetter, index) => {
       wordLetter.toUpperCase() == letter.toUpperCase() && position.push(index)
     })
