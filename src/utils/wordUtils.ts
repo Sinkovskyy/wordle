@@ -1,4 +1,5 @@
 import _ from 'lodash'
+import { WORDS } from '../config'
 import { store } from '../store'
 
 export const wordUtils = {
@@ -7,19 +8,7 @@ export const wordUtils = {
   },
 
   getRandomWord: (): string => {
-    const words: string[] = [
-      'house',
-      'upset',
-      'world',
-      'money',
-      'loyal',
-      'prise',
-      'seven',
-      'about',
-      'plane',
-    ]
-
-    return words[Math.floor(Math.random() * words.length)]
+    return WORDS[Math.floor(Math.random() * WORDS.length)]
   },
   getLetterPosition: (letter: string, word: string): number[] => {
     const position: number[] = []

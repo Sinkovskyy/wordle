@@ -1,5 +1,5 @@
 import { sliceActions } from './reducer'
 
-export const popupActions = {
+export const toastActions = {
   ...sliceActions,
 }
