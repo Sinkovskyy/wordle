@@ -24,6 +24,7 @@
     "@typescript-esling/ban-ts-comment": "off",
     "@typescript-eslint/ban-types": "off",
     "react/react-in-jsx-scope": "off",
-    "react-hooks/exhaustive-deps": "off"
+    "react-hooks/exhaustive-deps": "off",
+    "no-unused-vars": "off"
   }
 }

@@ -1,7 +1,7 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { FlexWrapper } from '../../components'
 import { Colors, font } from '../../styles'
-import { TButton } from './types'
+import { TKeyButton } from './types'
 
 export const Container = styled(FlexWrapper)`
   flex-direction: column;
@@ -9,7 +9,7 @@ export const Container = styled(FlexWrapper)`
   margin-bottom: 8px;
 `
 
-export const Button = styled.button<TButton>`
+export const KeyButton = styled.button<TKeyButton>`
   height: 58px;
   flex: ${({ flex }) => flex};
 
@@ -26,17 +26,25 @@ export const Button = styled.button<TButton>`
   justify-content: center;
   cursor: pointer;
 
-  &.green {
-    background-color: ${Colors.green};
-  }
+  ${({ color }) => {
+    if (color == 'green') {
+      return css`
+        background-color: ${Colors.green};
+      `
+    }
 
-  &.yellow {
-    background-color: ${Colors.yellow};
-  }
+    if (color == 'yellow') {
+      return css`
+        background-color: ${Colors.yellow};
+      `
+    }
 
-  &.grey {
-    background-color: ${Colors.grey_tone_1};
-  }
+    if (color == 'grey') {
+      return css`
+        background-color: ${Colors.grey_tone_1};
+      `
+    }
+  }}
 `
 
 export const Image = styled.img`
