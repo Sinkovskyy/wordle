@@ -64,8 +64,10 @@
     "prettier": "^2.7.1"
   },
   "jest": {
-    "testEnviroment": "jsdom",
-    "collectCoverageFrom":["scr/**/*.{ts,tsx,js,jsx}","!src/**/*.d.ts"],
+    "collectCoverageFrom": [
+      "scr/**/*.{ts,tsx,js,jsx}",
+      "!src/**/*.d.ts"
+    ],
     "setupFilesAfterEnv": [
       "<rootDir>/jest-setup.ts"
     ]

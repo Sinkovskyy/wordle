@@ -20,6 +20,7 @@ describe('Toast reducer', () => {
 
     const test2: TSetToastPayload = { isVisible: true }
     const result1 = toastReducer(initialState, action(test2))
+
     expect(result1).toEqual({ isVisible: true, text: '', closeTime: null })
   })
 })
