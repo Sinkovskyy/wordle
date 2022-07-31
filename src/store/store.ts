@@ -10,7 +10,7 @@ const persistedReducer = persistReducer(
   {
     key: Env.REDUX_STORE_NAME,
     storage,
-    whitelist: [],
+    whitelist: ['game'],
   },
   rootReducer
 )
