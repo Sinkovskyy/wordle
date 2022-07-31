@@ -6,7 +6,12 @@ module.exports = {
         targets: { node: 'current' },
       },
     ],
-    '@babel/preset-react',
+    [
+      '@babel/preset-react',
+      {
+        runtime: 'automatic',
+      },
+    ],
     '@babel/preset-typescript',
   ],
 }
