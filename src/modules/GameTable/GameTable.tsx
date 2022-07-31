@@ -41,7 +41,7 @@ const GameTable: FC = () => {
   useEffect(() => {
     !guessedWord &&
       dispatch(gameActions.setGuessedWord({ guessedWord: wordUtils.getRandomWord() }))
-  }, [])
+  }, [guessedWord])
 
   return <Container>{Utils.generateBlocks()}</Container>
 }

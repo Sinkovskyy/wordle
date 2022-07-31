@@ -96,6 +96,11 @@ export const Tile: FC<TTile> = ({ column, row, letter }) => {
 
     // Not set color if it second last row
     attemps.length - 1 != row + 1 && setColor(Utils.getLetterColor())
+
+    if (!letter) {
+      setAnimationDuration(undefined)
+      setAnimationDelay(undefined)
+    }
   }, [letter, attemps])
 
   return (
