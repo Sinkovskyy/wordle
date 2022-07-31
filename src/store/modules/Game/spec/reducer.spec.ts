@@ -15,11 +15,11 @@ describe('Game reducer', () => {
     expect(result).toEqual({ ...initialState, keyboardEnabled: false })
   })
 
-  it('Must to generate random word', () => {
-    const action = sliceActions.setGuessedWord()
+  it('Must to set word', () => {
+    const action = sliceActions.setGuessedWord({ guessedWord: 'world' })
 
     const result = gameReducer(initialState, action)
-    expect(result.guessedWord).not.toBeNull()
+    expect(result.guessedWord).toBe('world')
   })
 
   it('Must generate new empty word', () => {
