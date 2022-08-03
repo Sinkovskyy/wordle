@@ -3,7 +3,7 @@ import { PersistGate } from 'redux-persist/integration/react'
 import { Toast } from './components'
 
 import { persistor, store } from './store'
-import GlobalStyles from './styles/global'
+import { GlobalStyles } from './styles'
 import { MainView } from './views'
 
 function App() {
